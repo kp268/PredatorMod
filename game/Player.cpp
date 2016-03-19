@@ -55,7 +55,7 @@ const int HEALTH_PER_DOSE = 10;
 const int WEAPON_DROP_TIME = 20 * 1000;
 
 // time before a next or prev weapon switch happens
-const int	WEAPON_SWITCH_DELAY		= 150;
+const int	WEAPON_SWITCH_DELAY		= 100; //kp268: was 150
 
 const float	PLAYER_ITEM_DROP_SPEED	= 100.0f;
 
