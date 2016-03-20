@@ -431,7 +431,7 @@ stateResult_t rvWeaponBlaster::State_Fire ( const stateParms_t& parms ) {
 				PlayEffect ( "fx_chargedflash", barrelJointView, false );
 				PlayAnim( ANIMCHANNEL_ALL, "chargedfire", parms.blendFrames );
 			} else {
-				Attack ( false, 3, 3.0, 0, 1.0f ); //was Attack ( false, 1, spread, 0, 1.0f );
+				Attack ( false, 3, 2.0, 0, 1.0f ); //was Attack ( false, 1, spread, 0, 1.0f );
 				PlayEffect ( "fx_normalflash", barrelJointView, false ); //was PlayEffect ( "fx_normalflash", barrelJointView, false );
 				PlayAnim( ANIMCHANNEL_ALL, "fire", parms.blendFrames );
 			}
@@ -467,6 +467,19 @@ stateResult_t rvWeaponBlaster::State_Flashlight ( const stateParms_t& parms ) {
 			SetStatus ( WP_FLASHLIGHT );
 			// Wait for the flashlight anim to play		
 			PlayAnim( ANIMCHANNEL_ALL, "flashlight", 0 );
+
+			//cloaking
+
+			idPlayer* player;
+			player = gameLocal.GetLocalPlayer();
+
+			if (player -> fl.notarget == false)
+				player -> fl.notarget = true;
+			
+			else if(player -> fl.notarget == true)
+				player -> fl.notarget = false;
+			//end cloaking
+
 			return SRESULT_STAGE ( FLASHLIGHT_WAIT );
 			
 		case FLASHLIGHT_WAIT:
