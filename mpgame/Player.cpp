@@ -2639,6 +2639,7 @@ void idPlayer::Restore( idRestoreGame *savefile ) {
 		health = i;
 	}
 
+
 	//if there's hearing loss, make sure we post a finishing event
 	if( pfl.hearingLoss )	{
 		Event_FinishHearingLoss( 3.0f );

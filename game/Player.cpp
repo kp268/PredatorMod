@@ -2614,6 +2614,17 @@ void idPlayer::Restore( idRestoreGame *savefile ) {
 		health = i;
 	}
 
+		//Predator health modification
+	/*
+	int waitForRegen = 0;
+
+	while (health <= 100  ){ //gameLocal.time > waitForRegen
+		health = health + 2;
+		waitForRegen = gameLocal.time + 5000;
+	} 
+	*/
+	//End Predator health modification
+
 	//if there's hearing loss, make sure we post a finishing event
 	if( pfl.hearingLoss )	{
 		Event_FinishHearingLoss( 3.0f );

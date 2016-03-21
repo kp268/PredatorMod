@@ -473,11 +473,16 @@ stateResult_t rvWeaponBlaster::State_Flashlight ( const stateParms_t& parms ) {
 			idPlayer* player;
 			player = gameLocal.GetLocalPlayer();
 
-			if (player -> fl.notarget == false)
+			if (player -> fl.notarget == false){
 				player -> fl.notarget = true;
+				gameLocal.Printf("Cloak is on");
+			}
 			
-			else if(player -> fl.notarget == true)
+			else if(player -> fl.notarget == true){
 				player -> fl.notarget = false;
+				gameLocal.Printf("Cloak is off");
+			}
+
 			//end cloaking
 
 			return SRESULT_STAGE ( FLASHLIGHT_WAIT );
